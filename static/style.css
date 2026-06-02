@@ -1,0 +1,153 @@
+/* ── Base reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  /* home page defaults — overridden per-page via inline <style> on number.html */
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* ── Layout ─────────────────────────────────────────────────── */
+.center-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.number-label,
+.saved-text-label,
+.search-again-label,
+.no-text-msg {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.65;
+  margin-bottom: 0.4rem;
+}
+
+.number-display {
+  font-size: 2.5rem;
+  font-weight: 800;
+  word-break: break-all;
+  margin-bottom: 1.5rem;
+}
+
+.saved-text {
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+}
+
+/* ── Forms ──────────────────────────────────────────────────── */
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6rem 0.85rem;
+  font-size: 1rem;
+  border: 2px solid #000000;
+  border-radius: 6px;
+  outline: none;
+  background: transparent;
+  transition: border-color 0.15s;
+}
+
+.search-input:focus {
+  border-width: 2px;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.search-input.input-error {
+  border-color: #cc0000;
+}
+
+.search-btn,
+.save-btn {
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid #000000;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #000000;
+  color: #ffffff;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+
+.search-btn:hover,
+.save-btn:hover {
+  opacity: 0.8;
+}
+
+/* ── Save section ───────────────────────────────────────────── */
+.save-section {
+  margin-bottom: 1.5rem;
+}
+
+.save-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.save-textarea {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 2px solid #000000;
+  border-radius: 6px;
+  background: transparent;
+  resize: vertical;
+  outline: none;
+}
+
+.save-textarea:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* ── Error ──────────────────────────────────────────────────── */
+.error-msg {
+  color: #cc0000;
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+}
+
+/* ── Divider / search-again ─────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid #000000;
+  margin: 2rem 0 1.5rem;
+}
+
+.search-again {
+  margin-top: 0.5rem;
+}
+
+/* ── Saved text box ─────────────────────────────────────────── */
+.saved-text-box {
+  margin-bottom: 1.5rem;
+}
