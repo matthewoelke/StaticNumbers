@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Number Lookup{% endblock %}
+
+{% block content %}
+<main class="center-wrap">
+  <h1>Number Lookup</h1>
+  <form class="search-form" action="/search" method="post" novalidate>
+    <input
+      class="search-input {% if error %}input-error{% endif %}"
+      type="text"
+      name="number"
+      placeholder="Enter a Number"
+      value="{{ value | default('', true) }}"
+      autocomplete="off"
+      maxlength="10000"
+      autofocus
+    />
+    <button class="search-btn" type="submit">Search</button>
+  </form>
+  {% if error %}
+    <p class="error-msg">{{ error }}</p>
+  {% endif %}
+</main>
+{% endblock %}
