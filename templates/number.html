@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}{{ number }} — Number Lookup{% endblock %}
+
+{% block head %}
+<style>
+  body {
+    background-color: {{ bg_hex }};
+    color: {{ text_hex }};
+  }
+  .search-btn, .save-btn {
+    background-color: {{ text_hex }};
+    color: {{ bg_hex }};
+    border-color: {{ text_hex }};
+  }
+  .search-btn:hover, .save-btn:hover {
+    opacity: 0.85;
+  }
+  .search-input, .save-textarea {
+    border-color: {{ text_hex }};
+    color: {{ text_hex }};
+    background-color: {{ bg_hex }};
+  }
+  .search-input::placeholder {
+    color: {{ text_hex }};
+    opacity: 0.5;
+  }
+  .save-textarea::placeholder {
+    color: {{ text_hex }};
+    opacity: 0.5;
+  }
+  .divider {
+    border-color: {{ text_hex }};
+    opacity: 0.3;
+  }
+  a.back-link {
+    color: {{ text_hex }};
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<main class="center-wrap">
+
+  <p class="number-label">Number</p>
+  <h1 class="number-display">{{ number }}</h1>
+
+  {% if saved_text %}
+    <div class="saved-text-box">
+      <p class="saved-text-label">Saved text</p>
+      <p class="saved-text">{{ saved_text }}</p>
+    </div>
+  {% else %}
+    <div class="save-section">
+      <p class="no-text-msg">No text saved for this number yet.</p>
+      <form class="save-form" action="/view/save" method="post">
+        <textarea
+          class="save-textarea"
+          name="saved_text"
+          rows="4"
+          maxlength="2000"
+          placeholder="Enter text to associate with {{ number }}"
+          autofocus
+        ></textarea>
+        {% if save_error %}
+          <p class="error-msg">{{ save_error }}</p>
+        {% endif %}
+        <button class="save-btn" type="submit">Save</button>
+      </form>
+    </div>
+  {% endif %}
+
+  <hr class="divider" />
+
+  <section class="search-again">
+    <p class="search-again-label">Search another number</p>
+    <form class="search-form" action="/search" method="post" novalidate>
+      <input
+        class="search-input"
+        type="text"
+        name="number"
+        placeholder="Enter a Number"
+        maxlength="10000"
+        autocomplete="off"
+      />
+      <button class="search-btn" type="submit">Search</button>
+    </form>
+  </section>
+
+</main>
+{% endblock %}
