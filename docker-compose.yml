@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - db_data:/data
+    environment:
+      - DATABASE_PATH=/data/numbers.db
+      # Override SECRET_KEY before deploying:
+      # - SECRET_KEY=your-random-secret-here
+      - SECRET_KEY=change-this-before-deploying
+
+volumes:
+  db_data:
